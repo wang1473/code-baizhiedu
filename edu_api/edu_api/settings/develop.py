@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/2.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
-
+import datetime
 import os
 import sys
 
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    # 跨域配置
     'corsheaders',
     # xadmin配置
     'xadmin',
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
     'reversion',
 
     'home',
+    'user',
 
 ]
 
@@ -90,7 +92,7 @@ WSGI_APPLICATION = 'edu_api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # 修改为mysql
-        'NAME': 'edu_api',  # 库名
+        'NAME': 'edu',  # 库名
         'HOST': '127.0.0.1',  # 主机名 ip
         'PORT': 3306,  # 端口号
         'USER': 'root',  # 用户名
@@ -192,9 +194,34 @@ LOGGING = {
 # 允许跨域请求访问
 CORS_ORIGIN_ALLOW_ALL = True
 
+AUTH_USER_MODEL = "user.UserInto"
+
 # DRF相关配置
 REST_FRAMEWORK = {
     # 全局异常配置
+    'EXCEPTION_HANDLER': 'rest_framework.views.exception_handler',
 
     # 认证方式
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ],
 }
+
+# jwt相关配置
+JWT_AUTH = {
+
+    # token的有效时间
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=3000),
+
+    # jwt返回数据的格式
+    'JWT_RESPONSE_PAYLOAD_HANDLER':
+        'user.service.jwt_response_payload_handler',
+}
+
+# 自定义多条件登录
+AUTHENTICATION_BACKENDS = [
+    'user.service.UserAuthentication',
+
+]

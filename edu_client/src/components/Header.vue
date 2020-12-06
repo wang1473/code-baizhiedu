@@ -5,28 +5,45 @@
         <div class="logo full-left">
           <router-link to="/"><img src="../static/image/logo.png" alt=""></router-link>
         </div>
-        <ul class="nav full-left" >
-          <li v-for="(date,index) in nav_list" :key='index'><a :href="date.link">{{ date.title }}</a></li>
+        <ul class="nav full-left">
+          <!--          <li v-for="(date,index) in nav_list" :key='index'><a :href="date.link">{{ date.title }}</a></li>-->
 
-<!--          <li><span><a :href="date.link" target="_self" v-if="date.is_site">{{ date.title }}</a>-->
-<!--  <router-link :to="date.link" v-else>{{ date.title }}</router-link></span></li>-->
+          <li v-for="(date,index) in nav_list" :key='index'><a :href="date.link" target="_self"
+                                                               v-if="date.is_site">{{ date.title }}</a>
+            <router-link :to="date.link" v-else>{{ date.title }}</router-link>
+          </li>
+
           <!--          <li><span>Java进阶之路</span></li>-->
           <!--          <li><span>大数据成功法门</span></li>-->
           <!--          <li><span>Python全栈</span></li>-->
           <!--          <li><span>人工智能的魅力</span></li>-->
           <!--          <li><span>百知教育</span></li>-->
         </ul>
-        <div class="login-bar full-right">
+
+        <div class="login-bar full-right" v-if="token">
           <div class="shop-cart full-left">
             <img src="/static/image/cart.svg" alt="">
             <span><router-link to="/cart">购物车</router-link></span>
           </div>
           <div class="login-box full-left">
-            <span>登录</span>
+            <router-link to="/login">个人中心</router-link>
             &nbsp;|&nbsp;
-            <span>注册</span>
+            <span @click="quit">退出登录</span>
           </div>
         </div>
+
+        <div class="login-bar full-right" v-else>
+          <div class="shop-cart full-left">
+            <img src="/static/image/cart.svg" alt="">
+            <span><router-link to="/cart">购物车</router-link></span>
+          </div>
+          <div class="login-box full-left">
+            <router-link to="/login">登录</router-link>
+            &nbsp;|&nbsp;
+            <router-link to="/register">注册</router-link>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -38,6 +55,13 @@ export default {
   data() {
     return {
       nav_list: [],
+      token: false,
+    }
+  },
+  created() {
+    this.get_all_nav()
+    if (localStorage.getItem('token') || sessionStorage.getItem('token')) {
+      this.token = true
     }
   },
   methods: {
@@ -48,7 +72,7 @@ export default {
       }).then(response => {
         this.nav_list = response.data;
       }).catch(error => {
-        console.log(48, error);
+        console.log(error);
         this.$message({
           message: '地址错误',
           type: 'error',
@@ -57,9 +81,13 @@ export default {
         });
       })
     },
-  },
-  created() {
-    this.get_all_nav()
+    quit:function (){
+      delete localStorage.username
+      delete localStorage.password
+      delete localStorage.token
+      delete sessionStorage.token
+      this.token = false
+    }
   },
 }
 </script>

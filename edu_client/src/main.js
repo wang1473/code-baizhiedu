@@ -18,8 +18,11 @@ Vue.config.productionTip = false
 import settings from "./settings"
 
 Vue.prototype.$settings = settings;
+
+import './static/js/gt'
+
 new Vue({
-    router,
-    store,
-    render: h => h(App)
+  router,
+  store,
+  render: h => h(App)
 }).$mount('#app')

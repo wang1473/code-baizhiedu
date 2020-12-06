@@ -1,18 +1,18 @@
 <template>
   <div class="footer">
     <ul>
-            <li v-for="(nav,index) in navs_list" :key='index'><a :href="nav.link">{{ nav.title }}</a></li>
-<!--      <li v-for="(date,index) in navs_list" :key="index"><a :href="date.link" class="class1" target="_self"-->
-<!--                                                            v-if="date.is_site">{{ date.title }}</a>-->
-<!--        <router-link :to="date.link" v-else>{{ date.title }}</router-link>-->
+      <!--            <li v-for="(nav,index) in navs_list" :key='index'><a :href="nav.link">{{ nav.title }}</a></li>-->
+      <li v-for="(date,index) in navs_list" :key="index"><a :href="date.link" target="_self"
+                                                            v-if="date.is_site">{{ date.title }}</a>
+        <router-link :to="date.link" v-else>{{ date.title }}</router-link></li>
 
-      <!--      </li>-->
-      <!--      <li>关于我们</li>-->
-      <!--      <li>联系我们</li>-->
-      <!--      <li>百知教育</li>-->
-      <!--      <li>帮助中心</li>-->
-      <!--      <li>意见反馈</li>-->
-      <!--      <li>新手指南</li>-->
+        <!--      </li>-->
+        <!--      <li>关于我们</li>-->
+        <!--      <li>联系我们</li>-->
+        <!--      <li>百知教育</li>-->
+        <!--      <li>帮助中心</li>-->
+        <!--      <li>意见反馈</li>-->
+        <!--      <li>新手指南</li>-->
     </ul>
   </div>
 </template>
