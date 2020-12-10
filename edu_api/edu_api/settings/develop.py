@@ -48,9 +48,15 @@ INSTALLED_APPS = [
     'xadmin',
     'crispy_forms',
     'reversion',
+    'django_filters',
+
+    'ckeditor',  # 富文本编辑器
+    'ckeditor_uploader',  # 富文本编辑器上传图片模块
 
     'home',
     'user',
+    'course',
+    'cart',
 
 ]
 
@@ -225,3 +231,52 @@ AUTHENTICATION_BACKENDS = [
     'user.service.UserAuthentication',
 
 ]
+
+# redis相关配置
+CACHES = {
+    # 默认库
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    },
+    # 验证码储存位置
+    "sms_code": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/2",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    },
+    # 购物车
+    "cart": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://192.0.0.1:6379/3",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    },
+}
+
+# 富文本编辑器
+CKEDITOR_UPLOAD_PATH = ''  # 使用fdfs分布系统
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',  # 完整工具条
+        'height': 300,  # 编辑高度
+        'width': 1000
+    },
+    # 'default': {
+    #     'toolbar': 'Custom',
+    #     'toolbar_Custom': [
+    #         ['Bold', 'Italic', 'Underline'],
+    #         ['NumberedList', 'BulletedList', '-', 'table', 'image2', 'Outdent', 'Indent',
+    #          '-', 'JustifyLeft', 'JustifyCenter',
+    #          'JustifyRight', 'JustifyBlock'],
+    #         ['Link', 'Unlink'],
+    #         ['RemoveFormat', 'Source']
+    #     ]
+    # }
+}
