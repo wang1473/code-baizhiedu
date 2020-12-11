@@ -229,7 +229,6 @@ JWT_AUTH = {
 # 自定义多条件登录
 AUTHENTICATION_BACKENDS = [
     'user.service.UserAuthentication',
-
 ]
 
 # redis相关配置
@@ -253,7 +252,7 @@ CACHES = {
     # 购物车
     "cart": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://192.0.0.1:6379/3",
+        "LOCATION": "redis://127.0.0.1:6379/3",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }

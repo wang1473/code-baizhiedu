@@ -23,7 +23,7 @@
         <div class="login-bar full-right" v-if="token">
           <div class="shop-cart full-left">
             <img src="/static/image/cart.svg" alt="">
-            <span><router-link to="/cart">购物车</router-link></span>
+            <span><router-link to="/cart">{{this.$store.state.cart_length}}购物车</router-link></span>
           </div>
           <div class="login-box full-left">
             <router-link to="/login">个人中心</router-link>
@@ -56,12 +56,14 @@ export default {
     return {
       nav_list: [],
       token: false,
+      user: '',
     }
   },
   created() {
     this.get_all_nav()
     if (localStorage.getItem('token') || sessionStorage.getItem('token')) {
       this.token = true
+      this.user = localStorage.username
     }
   },
   methods: {
@@ -81,11 +83,13 @@ export default {
         });
       })
     },
-    quit:function (){
+    quit: function () {
       delete localStorage.username
       delete localStorage.password
+      delete localStorage.phone
       delete localStorage.token
       delete sessionStorage.token
+      localStorage.clear()
       this.token = false
     }
   },

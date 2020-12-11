@@ -5,17 +5,16 @@
       <div class="register_box">
         <div class="register-title">百知教育在线平台注册</div>
         <div class="inp">
-          <input v-model="mobile" type="text" placeholder="手机号码" class="user">
-          <input v-model="password" type="password" placeholder="登录密码" class="user">
+          <input v-model="phone" type="text" placeholder="手机号码" class="user" @blur="check_phone">
+          <input v-model="password" type="password" placeholder="登录密码" class="user" @blur="check_password">
           <div id="geetest"></div>
           <div class="sms-box">
-            <input v-model="code" type="text" maxlength="6" placeholder="输入验证码" class="user">
-            <div class="sms-btn">请输入验证码</div>
+            <input v-model="sms_code" type="text" maxlength="6" placeholder="输入验证码" class="user">
+            <div class="sms-btn" @click="get_code" id="time">获取验证码<span v-if="disp">-{{ time }}秒</span></div>
           </div>
-          <button class="register_btn">注册</button>
+          <button class="register_btn" @click="user_register">注册</button>
           <p class="go_login">已有账号
             <router-link to="/login">直接登录</router-link>
-            <!--            <span>直接登录</span>-->
           </p>
         </div>
       </div>
@@ -28,22 +27,152 @@ export default {
   name: "Register",
   data() {
     return {
-      sms: "",
-      mobile: "",
-      password: "",
-      is_send_sms: false,// 是否已经发送短信的状态
-      sms_text: "点击发送短信", //发送短信的提示
+      phone: '',
+      password: '',
+      sms_code: '',
+      register_flag: false,
+      disp: false,
+      time: 60
     }
   },
   methods: {
-    user_register() {
-      this.$axios({
-        url: this.$settings.HOST + "user/register/",
-        method: "post",
-        data: {},
-      })
+    clock: function () {
+      this.disp = true
+      this.times = setInterval(() => {
+        this.time--
+        if (this.time === 0) {
+          this.disp = false
+          clearInterval(this.times)
+        }
+      }, 1000)
     },
-  }
+    get_code() {
+      if (this.register_flag) {
+        this.$axios({
+          url: this.$settings.HOST + 'user/message/',
+          method: 'get',
+          params: {
+            phone: this.phone,
+          }
+        }).then(response => {
+          console.log(response)
+          this.clock()
+        }).catch(error => {
+          console.log(error)
+          this.$message({
+            message: "验证码错误",
+            type: 'success',
+            duration: 2000,
+            showClose: true,
+          })
+        })
+      }
+    },
+
+    user_register: function () {
+      let regg = /^(?![d]+$)(?![a-zA-Z]+$)(?![^da-zA-Z]+$).{6,18}$/;
+      if (this.phone === '' || this.password === '' || this.sms_code === '') {
+        this.$message({
+          message: "账号或密码或验证码不能为空",
+          type: 'success',
+          duration: 2000,
+          showClose: true,
+        })
+      } else if (this.register_flag) {
+        this.$axios({
+          url: this.$settings.HOST + "user/register/",
+          method: "post",
+          data: {
+            phone: this.phone,
+            password: this.password,
+            sms_code: this.sms_code,
+          },
+        }).then(response => {
+          console.log(response);
+          // 保存用户信息  自动登录
+          localStorage.setItem('username', this.username)
+          localStorage.setItem('password', this.password)
+          localStorage.setItem('phone', this.phone)
+          localStorage.setItem('token', response.data.token)
+          let self = this;
+          this.$alert("注册成功", "百知教育", {
+            callback() {
+              self.$router.push("/")
+            }
+          })
+        }).catch(error => {
+          console.log(error);
+          this.$message({
+            message: '注册失败',
+            type: 'success',
+            duration: 2000,
+            showClose: true,
+          })
+        })
+      }
+    },
+
+
+    check_password() {
+      let reg = /^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$).{6,18}$/;
+      if (this.password === '') {
+        this.$message({
+          message: "密码不能为空",
+          type: 'success',
+          duration: 2000,
+          showClose: true,
+        })
+      }
+      else if (!reg.test(this.password)) { // 前端检测手机号长度是否符合要求
+        this.$message({
+          message: "密码格式为6-18位，数字/字母/特殊字符任意两种组合",
+          type: 'success',
+          duration: 2000,
+          showClose: true,
+        })
+      } else {
+        this.register_flag = true
+      }
+    },
+
+    // 检查手机号是否唯一
+    check_phone() {
+      let reg = /^1[3-9]\d{9}$/;
+      if (this.phone === '') {
+        this.$message({
+          message: "手机不能为空",
+          type: 'success',
+          duration: 2000,
+          showClose: true,
+        })
+      } else if (!reg.test(this.phone)) { // 前端检测手机号长度是否符合要求
+        this.$message({
+          message: "手机号格式不正确",
+          type: 'success',
+          duration: 2000,
+          showClose: true,
+        })
+      }
+      this.$axios({
+        url: this.$settings.HOST + "user/phone/",
+        method: 'post',
+        data: {
+          phone: this.phone
+        }
+      }).then(response => {
+        console.log(response)
+        this.register_flag = true
+      }).catch(onerror => {
+        this.$message({
+          message: "手机号已被注册",
+          type: 'success',
+          duration: 2000,
+          showClose: true,
+        })
+      })
+    }
+
+  },
 }
 </script>
 

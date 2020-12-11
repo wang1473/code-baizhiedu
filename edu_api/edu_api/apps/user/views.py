@@ -83,7 +83,6 @@ class Phonee(ModelViewSet):
 
     def phone_code(self, request, *args, **kwargs):
         username = request.data.get('phone')
-        print(111, username)
         phone = UserInto.objects.filter(phone=username)
         if phone:
             return Response({
