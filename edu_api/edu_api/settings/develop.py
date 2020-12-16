@@ -57,7 +57,8 @@ INSTALLED_APPS = [
     'user',
     'course',
     'cart',
-
+    'order',
+    'payments',
 ]
 
 MIDDLEWARE = [
@@ -129,13 +130,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # LANGUAGE_CODE = 'en-us'
 LANGUAGE_CODE = 'zh-hans'
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
@@ -219,7 +220,7 @@ REST_FRAMEWORK = {
 JWT_AUTH = {
 
     # token的有效时间
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=3000),
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=30000),
 
     # jwt返回数据的格式
     'JWT_RESPONSE_PAYLOAD_HANDLER':
@@ -278,4 +279,18 @@ CKEDITOR_CONFIGS = {
     #         ['RemoveFormat', 'Source']
     #     ]
     # }
+}
+
+# 支付宝配置信息
+ALIAPY_CONFIG = {
+    # "gateway_url": "https://openapi.alipay.com/gateway.do?", # 真实支付宝网关地址
+    "gateway_url": "https://openapi.alipaydev.com/gateway.do?",  # 沙箱支付宝网关地址
+    "appid": "2016102200738366",
+    "app_notify_url": None,
+    "app_private_key_path": open(os.path.join(BASE_DIR, "apps/payments/keys/app_private_key.pem")).read(),
+    "alipay_public_key_path": open(os.path.join(BASE_DIR, "apps/payments/keys/alipay_public_key.pem")).read(),
+    "sign_type": "RSA2",
+    "debug": False,
+    "return_url": "http://localhost:8080/result",  # 同步回调地址
+    "notify_url": "http://api.baizhiedu.com:8000/payments/result",  # 异步结果通知
 }

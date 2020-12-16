@@ -46,6 +46,7 @@ class UserModelSerializer(ModelSerializer):
         redis_connection = get_redis_connection('sms_code')
         phone_code = redis_connection.get('mobile_%s' % phone)
         if phone_code.decode('utf-8') != sms_code:
+            print(phone_code,sms_code)
             raise serializers.ValidationError('验证码错误')
         # 验证手机号
         if not re.match(r'^1[3-9]\d{9}$', phone):

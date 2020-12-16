@@ -9,7 +9,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
 
-from course.models import Course
+from course.models import Course, CourseExpire
 from edu_api.settings.constants import IMG_SRC
 
 log = logging.getLogger('django')
@@ -81,17 +81,19 @@ class CartViewSet(ViewSet):
                 'course_img': IMG_SRC + course.course_img.url,
                 'name': course.name,
                 'id': course.id,
-                'price': course.price,
-                'exprie_id': expire_id
+                # 'price': course.discount_price,
+                'expire_id': expire_id,
+                'expire_list': course.expire_list,
+                "final_price": course.final_price(expire_id),  # 根据有效期价格计算出的最终价格
             })
         return Response(data)
 
     def select_change(self, request):
         """切换购物车商品的状态"""
+        user_id = request.user.id
         course_id = request.data.get('course_id')
         select = request.data.get('selected')
-        print(select)
-        user_id = request.user.id
+        # 获取redis链接
         redis_connection = get_redis_connection("cart")
         if select:
             try:
@@ -109,6 +111,7 @@ class CartViewSet(ViewSet):
         course_id = request.data.get('course_id')
         user_id = request.user.id
         select = request.data.get('selected')
+        # 获取redis链接
         redis_connection = get_redis_connection("cart")
 
         try:
@@ -122,14 +125,87 @@ class CartViewSet(ViewSet):
 
     def expire_change(self, request):
         """改变redis的课程有效期"""
-        course_id = request.data.get('course_id')
         user_id = request.user.id
-        expire_id = request.data.get("expire")
-        redis_connection = get_redis_connection("cart")
+        course_id = request.data.get("course_id")
+        expire_id = request.data.get("expire_id")
 
         try:
-            redis_connection.hset('cart_%s' % user_id, course_id, expire_id)
-            return Response({'message': "修改有效期成功"}, status=status.HTTP_200_OK)
+            course = Course.objects.get(is_show=True, is_delete=False, pk=course_id)
+            # 前端传递的有效期不是0 修改
+            if expire_id > 0:
+                expire_item = CourseExpire.objects.filter(is_delete=False, is_show=True, pk=expire_id)
+                if not expire_item:
+                    raise CourseExpire.DoesNotExist()
+        except Course.DoesNotExist:
+            return Response({"message": "操作的课程不存在"}, status=status.HTTP_400_BAD_REQUEST)
+        # 获取redis链接
+        redis_connection = get_redis_connection("cart")
+        redis_connection.hset("cart_%s" % user_id, course_id, expire_id)
 
-        except:
-            return Response({"message": "该课程不存在"}, status=status.HTTP_400_BAD_REQUEST)
+        # 重新计算修改有效期的课程的价格
+        price = course.final_price(expire_id)
+
+        return Response({"message": "切换有效期成功", "price": price}, status=status.HTTP_200_OK)
+
+    def get_select_course(self, request):
+        """
+        获取购物车中已勾选的商品，返回前端所需的数据
+        :param request:
+        :return:
+        """
+        user_id = request.user.id
+        redis_connection = get_redis_connection("cart")
+
+        # 获取当前已登录的购物车中的所有商品
+        cart_list = redis_connection.hgetall("cart_%s" % user_id)
+        select_list = redis_connection.smembers("selected_%s" % user_id)
+
+        total_price = 0
+        data = []
+
+        for course_id_byte, expire_id_byte in cart_list.items():
+            course_id = int(course_id_byte)
+            expire_id = int(expire_id_byte)
+
+            if course_id_byte in select_list:
+
+                try:
+                    # 获取到购物车中所有的课程信息
+                    course = Course.objects.get(is_show=True, is_delete=False, pk=course_id)
+                except Course.DoesNotExist:
+                    continue
+
+                # 如果有效期的id大于0，则需要通过有效期对应的价格来计算活动真实价  id不大于0则使用课程本身的原价
+                original_price = course.price
+                expire_text = "永久有效"
+
+                try:
+                    if expire_id > 0:
+                        course_expire = CourseExpire.objects.get(id=expire_id)
+                        # 对应有效期的价格
+                        original_price = course_expire.price
+                        expire_text = course_expire.expire_text
+                except CourseExpire.DoesNotExist:
+                    pass
+
+                # 根据已勾选的商品对应的有效期的价格来计算商品的最终价格
+                final_price = course.final_price(expire_id)
+
+                # 将购物车所需的信息返回
+                data.append({
+                    "selected": True if course_id_byte in select_list else False,
+                    "course_img": IMG_SRC + course.course_img.url,
+                    "name": course.name,
+                    "id": course.id,
+                    # 课程原价
+                    "price": original_price,
+                    "expire_id": expire_id,
+                    "expire_text": expire_text,
+                    # 活动计算后的真实价格
+                    "final_price": final_price  # 根据有效期价格计算出的最终价格
+                })
+
+            # 商品叠加后的真实总价
+            total_price += float(final_price)
+
+        return Response({"course_list": data, "real_price": total_price, "message": "获取成功"})

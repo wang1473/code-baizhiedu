@@ -19,12 +19,15 @@
               course_detail.pub_lessons
             }}课时/ {{ course_detail.lessons }}课时&nbsp;&nbsp;&nbsp;&nbsp;难度：{{ course_detail.level_name }}</p>
           <div class="sale-time">
-            <p class="sale-type">限时免费</p>
-            <p class="expire">距离结束：仅剩 110天 13小时 33分 <span class="second">08</span> 秒</p>
+            <p class="sale-type">{{ course_detail.discount_name }}</p>
+            <p class="expire">距离结束：仅剩 {{ parseInt(course_detail.active_time / (24 * 3600)) }}天
+              {{ parseInt(course_detail.active_time / 3600 % 24) }}小时
+              {{ parseInt(course_detail.active_time / 60 % 60) }}分
+              <span class="second">{{ parseInt(course_detail.active_time % 60) }}</span> 秒</p>
           </div>
           <p class="course-price">
             <span>活动价</span>
-            <span class="discount">¥0.00</span>
+            <span class="discount">¥{{ course_detail.discount_price }}</span>
             <span class="original">¥{{ course_detail.price }}</span>
           </p>
           <div class="buy">
@@ -151,6 +154,7 @@ export default {
       },
     }
   },
+
   methods: {
     // 检查用户是否登录
     check_user_login() {
@@ -222,6 +226,16 @@ export default {
         method: "get"
       }).then(res => {
         this.course_detail = res.data
+        // 设置课程活动的倒计时
+        if (this.course_detail.active_time > 0) {
+          let timer = setInterval(() => {
+            if (this.course_detail.active_time > 1) {
+              this.course_detail.active_time -= 1
+            } else {
+              clearInterval(timer)
+            }
+          }, 1000)
+        }
       }).catch(error => {
         console.log(error)
       })

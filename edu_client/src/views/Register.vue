@@ -70,7 +70,6 @@ export default {
     },
 
     user_register: function () {
-      let regg = /^(?![d]+$)(?![a-zA-Z]+$)(?![^da-zA-Z]+$).{6,18}$/;
       if (this.phone === '' || this.password === '' || this.sms_code === '') {
         this.$message({
           message: "账号或密码或验证码不能为空",
@@ -94,12 +93,17 @@ export default {
           localStorage.setItem('password', this.password)
           localStorage.setItem('phone', this.phone)
           localStorage.setItem('token', response.data.token)
+          sessionStorage.setItem('token', response.data.token)
           let self = this;
           this.$alert("注册成功", "百知教育", {
             callback() {
               self.$router.push("/")
             }
           })
+          localStorage.setItem('username', this.phone)
+          sessionStorage.setItem('username', this.phone)
+          localStorage.setItem('token', response.data.data.token)
+          sessionStorage.setItem('token', response.data.data.token)
         }).catch(error => {
           console.log(error);
           this.$message({
@@ -153,7 +157,9 @@ export default {
           showClose: true,
         })
       }
+      console.log(111,this.phone)
       this.$axios({
+
         url: this.$settings.HOST + "user/phone/",
         method: 'post',
         data: {
@@ -162,6 +168,7 @@ export default {
       }).then(response => {
         console.log(response)
         this.register_flag = true
+        sessionStorage.setItem('username',this.phone)
       }).catch(onerror => {
         this.$message({
           message: "手机号已被注册",
@@ -171,7 +178,6 @@ export default {
         })
       })
     }
-
   },
 }
 </script>

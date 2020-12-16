@@ -23,10 +23,10 @@
         <div class="login-bar full-right" v-if="token">
           <div class="shop-cart full-left">
             <img src="/static/image/cart.svg" alt="">
-            <span><router-link to="/cart">{{this.$store.state.cart_length}}购物车</router-link></span>
+            <span><router-link to="/cart">{{ this.$store.state.cart_length }}购物车</router-link></span>
           </div>
           <div class="login-box full-left">
-            <router-link to="/login">个人中心</router-link>
+            <router-link to="/list">{{ username }}</router-link>
             &nbsp;|&nbsp;
             <span @click="quit">退出登录</span>
           </div>
@@ -55,18 +55,26 @@ export default {
   data() {
     return {
       nav_list: [],
-      token: false,
-      user: '',
+      token: '',
+      username: '',
     }
   },
   created() {
     this.get_all_nav()
-    if (localStorage.getItem('token') || sessionStorage.getItem('token')) {
-      this.token = true
-      this.user = localStorage.username
-    }
+    this.get_token()
+
   },
   methods: {
+    user_login() {
+      let self = this
+      this.$confirm("对不起，请先登录再添加购物车", {
+        callback() {
+          self.$router.push("/login")
+        }
+      })
+      return false
+    },
+
     get_all_nav() {
       this.$axios({
         url: this.$settings.HOST + "home/navs/",
@@ -83,15 +91,22 @@ export default {
         });
       })
     },
-    quit: function () {
-      delete localStorage.username
-      delete localStorage.password
-      delete localStorage.phone
-      delete localStorage.token
-      delete sessionStorage.token
-      localStorage.clear()
-      this.token = false
-    }
+    get_token() {
+      this.token = localStorage.token || sessionStorage.token;
+      this.username = localStorage.username || sessionStorage.username
+    },
+    quit() {
+      localStorage.removeItem('token')
+      localStorage.removeItem('username')
+      localStorage.removeItem('password')
+
+      sessionStorage.removeItem('token')
+      sessionStorage.removeItem('username')
+      sessionStorage.removeItem('password')
+
+      this.token = ''
+      this.username = ''
+    },
   },
 }
 </script>

@@ -67,7 +67,10 @@ class Phone(ModelViewSet):
 
     def phone(self, request, *args, **kwargs):
         phone = request.data.get('phone')
-        phonee = UserInto.objects.filter(phone=phone)
+        print(phone)
+        phonee = UserInto.objects.filter(phone=phone).first()
+        print(phonee)
+
         if phonee:
             return Response({
                 'message': '手机号已存在',
@@ -117,7 +120,6 @@ class PhoneAPIView(ModelViewSet):
             payload = jwt_payload_handler(user)
             # 根据载荷生成token
             user.token = jwt_encode_handler(payload)
-
             return Response({
                 'message': '登陆成功',
                 'data': UserModelSerializer(user).data

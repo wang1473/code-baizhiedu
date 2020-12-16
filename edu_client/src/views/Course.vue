@@ -44,9 +44,10 @@
                   class="free" v-if="lesson.free_trail">免费</span></li>
             </ul>
             <div class="pay-box">
-              <span class="discount-type">限时免费</span>
-              <span class="discount-price">￥0.00元</span>
-              <span class="original-price">原价：{{ course.price }}元</span>
+              <span class="discount-type" v-if="course.discount_name">{{ course.discount_name }}</span>
+              <span class="discount-price" v-if="course.discount_name">￥{{ course.discount_price }}元</span>
+              <span class="original-price" v-if="course.discount_name">原价：{{ course.price }}元</span>
+              <span class="discount-price" v-else>{{ course.price }}元</span>
               <span class="buy-now">立即购买</span>
             </div>
           </div>
@@ -163,7 +164,6 @@ export default {
       if (this.category > 0) {
         filters.course_category = this.category;
       }
-
       this.$axios.get(this.$settings.HOST + "course/courses/", {
         params: filters
       }).then(res => {

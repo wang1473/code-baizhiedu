@@ -33,9 +33,6 @@
             <input v-model="code" type="text" maxlength="6" placeholder="输入验证码" class="user">
             <div class="sms-btn" @click="phone_captcha" id="time">获取验证码<span v-if="disp">-{{ time }}秒</span></div>
           </div>
-          <!--          <input type="text" class="pwd" placeholder="短信验证码" v-model="password">-->
-          <!--          <button id="get_code" class="btn btn-primary">获取验证码</button>-->
-
           <button class="login_btn" @click="user_logins">登录</button>
           <span class="go_login">没有账号
                     <router-link to="/register">立即注册</router-link>
@@ -153,14 +150,16 @@ export default {
             code: this.code
           }
         }).then(response => {
-          console.log(response)
-          localStorage.setItem('token', response.data.token)
           let self = this;
           this.$alert("登录成功", "百知教育", {
             callback() {
               self.$router.push("/")
             }
           })
+          localStorage.setItem('token', response.data.data.token)
+          sessionStorage.setItem('token', response.data.data.token)
+          localStorage.setItem('username', this.phone)
+          sessionStorage.setItem('username', this.phone)
         }).catch(error => {
           console.log(error)
           this.$message({
@@ -203,6 +202,7 @@ export default {
           new_captcha: data.new_captcha
         }, this.handlerPopup);
       }).catch(error => {
+        console.log(error);
         this.$message({
           message: "用户名或密码错误",
           type: 'success',
@@ -267,6 +267,8 @@ export default {
           delete localStorage.password
         }
         localStorage.setItem('token', response.data.token)
+        sessionStorage.setItem('token', response.data.token)
+        sessionStorage.setItem('username', this.username)
         this.$router.push('/')
       }).catch(error => {
         console.log(error);
@@ -455,6 +457,25 @@ export default {
 .inp .go_login span {
   color: #84cc39;
   cursor: pointer;
+}
+
+.sms-box {
+  position: relative;
+}
+
+.sms-btn {
+  font-size: 14px;
+  color: #ffc210;
+  letter-spacing: .26px;
+  position: absolute;
+  right: 16px;
+  top: 10px;
+  cursor: pointer;
+  overflow: hidden;
+  background: #fff;
+  border-left: 1px solid #484848;
+  padding-left: 16px;
+  padding-bottom: 4px;
 }
 
 </style>

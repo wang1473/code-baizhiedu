@@ -20,23 +20,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dae5dc77-f3c4-474f-a2c0-960ac78d52fd" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../edu_client/src/views/Cart.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../edu_client/src/views/CartItem.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../edu_client/src/views/Course.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../edu_client/src/views/CourseDetail.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edu_api/apps/order/adminx.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edu_api/apps/order/serializer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edu_api/apps/order/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edu_api/apps/payments/adminx.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edu_api/apps/payments/keys/alipay_public_key.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edu_api/apps/payments/keys/app_private_key.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edu_api/apps/payments/keys/app_public_key.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edu_api/apps/payments/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../edu_client/src/views/Order.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../edu_client/src/views/OrderList.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../edu_client/src/views/OrderSuccess.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/edu_api/apps/cart/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/edu_api/apps/cart/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/edu_api/apps/cart/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/edu_api/apps/cart/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu_api/apps/course/adminx.py" beforeDir="false" afterPath="$PROJECT_DIR$/edu_api/apps/course/adminx.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu_api/apps/course/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/edu_api/apps/course/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu_api/apps/course/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/edu_api/apps/course/serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu_api/apps/user/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/edu_api/apps/user/serializer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/edu_api/apps/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/edu_api/apps/user/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu_api/settings/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/edu_api/settings/constants.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/edu_api/settings/develop.py" beforeDir="false" afterPath="$PROJECT_DIR$/edu_api/settings/develop.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu_api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/edu_api/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/lesson_api.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/lesson_api.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../edu_client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../edu_client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../edu_client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../edu_client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../edu_client/src/components/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../edu_client/src/components/Header.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../edu_client/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../edu_client/src/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../edu_client/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../edu_client/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../edu_client/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../edu_client/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../edu_client/src/views/Cart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../edu_client/src/views/Cart.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../edu_client/src/views/CartItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../edu_client/src/views/CartItem.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../edu_client/src/views/Course.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../edu_client/src/views/Course.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../edu_client/src/views/CourseDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../edu_client/src/views/CourseDetail.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../edu_client/src/views/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../edu_client/src/views/Login.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../edu_client/src/views/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../edu_client/src/views/Register.vue" afterDir="false" />
     </list>
@@ -58,25 +70,66 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/edu_api/apps/cart/urls.py">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/edu_api/apps/payments/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+            <state relative-caret-position="438">
+              <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/edu_api/apps/course/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="serializer.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/edu_api/apps/course/serializer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="292">
+              <caret line="36" selection-start-line="36" selection-end-line="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="serializer.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/edu_api/apps/user/serializer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
               <folding>
-                <element signature="e#0#28#0" expanded="true" />
+                <element signature="e#0#9#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/edu_api/apps/cart/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="37">
-              <caret line="117" column="43" selection-start-line="117" selection-start-column="43" selection-end-line="117" selection-end-column="43" />
+            <state relative-caret-position="2616">
+              <caret line="121" selection-start-line="121" selection-end-line="121" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="serivce.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/edu_api/apps/course/serivce.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="develop.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/edu_api/settings/develop.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5304">
+              <caret line="223" selection-start-line="223" selection-end-line="223" />
               <folding>
-                <element signature="e#0#35#0" expanded="true" />
+                <element signature="e#307#322#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -98,6 +151,10 @@
       <find>api_settings</find>
       <find>CourseLesson</find>
       <find>CourseChapter</find>
+      <find>CourseExpire</find>
+      <find>expire_id</find>
+      <find>SECRET_KEY</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -106,10 +163,27 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/edu_api/settings/develop.py" />
-        <option value="$PROJECT_DIR$/edu_api/apps/user/views.py" />
+        <option value="$PROJECT_DIR$/edu_api/apps/course/serializer.py" />
+        <option value="$PROJECT_DIR$/edu_api/apps/course/adminx.py" />
+        <option value="$PROJECT_DIR$/edu_api/apps/order/models.py" />
+        <option value="$PROJECT_DIR$/edu_api/apps/order/adminx.py" />
+        <option value="$PROJECT_DIR$/edu_api/apps/order/urls.py" />
+        <option value="$PROJECT_DIR$/edu_api/apps/order/views.py" />
+        <option value="$PROJECT_DIR$/edu_api/apps/course/models.py" />
+        <option value="$PROJECT_DIR$/edu_api/apps/payments/models.py" />
+        <option value="$PROJECT_DIR$/edu_api/urls.py" />
+        <option value="$PROJECT_DIR$/edu_api/apps/payments/urls.py" />
+        <option value="$PROJECT_DIR$/edu_api/apps/order/serializer.py" />
+        <option value="$PROJECT_DIR$/edu_api/apps/payments/adminx.py" />
+        <option value="D:/wx/WeChat Files/wxid_hdi06j2pm9e412/FileStorage/File/2020-12/views.py" />
         <option value="$PROJECT_DIR$/edu_api/apps/cart/urls.py" />
         <option value="$PROJECT_DIR$/edu_api/apps/cart/views.py" />
+        <option value="D:/wx/WeChat Files/wxid_hdi06j2pm9e412/FileStorage/File/2020-12/views(2).py" />
+        <option value="$PROJECT_DIR$/edu_api/apps/payments/views.py" />
+        <option value="$PROJECT_DIR$/edu_api/settings/constants.py" />
+        <option value="$PROJECT_DIR$/edu_api/apps/user/serializer.py" />
+        <option value="$PROJECT_DIR$/edu_api/apps/user/views.py" />
+        <option value="$PROJECT_DIR$/edu_api/settings/develop.py" />
       </list>
     </option>
   </component>
@@ -122,10 +196,11 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="100" />
-    <option name="width" value="1500" />
-    <option name="height" value="1040" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-50" />
+    <option name="y" value="15" />
+    <option name="width" value="980" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectId" id="1lSRC4rfGQ7mxfRXGQuFtJb1dZh" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -134,7 +209,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -165,6 +239,27 @@
               <item name="edu_api" type="462c0819:PsiDirectoryNode" />
               <item name="edu_api" type="462c0819:PsiDirectoryNode" />
               <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="course" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="edu_api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="edu_api" type="462c0819:PsiDirectoryNode" />
+              <item name="edu_api" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="order" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="edu_api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="edu_api" type="462c0819:PsiDirectoryNode" />
+              <item name="edu_api" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="payments" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="edu_api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="edu_api" type="462c0819:PsiDirectoryNode" />
+              <item name="edu_api" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -173,15 +268,11 @@
               <item name="edu_api" type="462c0819:PsiDirectoryNode" />
               <item name="settings" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="edu_api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="edu_api" type="462c0819:PsiDirectoryNode" />
-              <item name="logs" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -191,7 +282,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="E:/vnc/001/web/baizhi商城/edu_api" />
+    <property name="last_opened_file_path" value="E:/vnc/001/web/web/educ_api" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
@@ -202,11 +293,11 @@
       <recent name="E:\two\code\edu_api\edu_api\utils" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\two\code\edu_api\edu_api\apps\payments" />
+      <recent name="E:\two\code\edu_api\edu_api\apps\order" />
       <recent name="E:\two\code\edu_api\edu_api\settings" />
       <recent name="E:\two\code\edu_api\edu_api\utils" />
       <recent name="E:\two\code\edu_api\edu_api\libs" />
-      <recent name="E:\two\code\edu_api\edu_api\apps\user" />
-      <recent name="E:\two\code\edu_api\edu_api\apps\home" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -320,19 +411,20 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49932975" weight="0.32890856" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5013405" side_tool="true" weight="0.5450517" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3293944" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.3293944" />
       <window_info anchor="bottom" id="Python Console" order="6" sideWeight="0.49932975" weight="0.32890856" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49865952" weight="0.17282127" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49865952" weight="0.5450517" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.499002" visible="true" weight="0.22587131" />
-      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49865952" visible="true" weight="0.10192024" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49865952" weight="0.3633678" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49591836" visible="true" weight="0.15683647" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info id="Structure" order="1" sideWeight="0.500998" side_tool="true" weight="0.13605899" />
+      <window_info id="Structure" order="1" sideWeight="0.5040816" side_tool="true" weight="0.20174263" />
       <window_info id="Favorites" order="2" sideWeight="0.499002" side_tool="true" weight="0.13605899" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3988183" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -343,6 +435,29 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.499002" weight="0.23525469" />
+      <window_info id="Structure" order="1" sideWeight="0.500998" side_tool="true" weight="0.13605899" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49932975" weight="0.32890856" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3293944" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49865952" visible="true" weight="0.090103395" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Python Console" order="6" sideWeight="0.49932975" weight="0.32890856" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3988183" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49865952" weight="0.5450517" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5013405" side_tool="true" weight="0.5450517" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info id="Favorites" order="2" sideWeight="0.499002" side_tool="true" weight="0.13605899" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -374,192 +489,19 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="8" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/xuni/ven/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu_api/apps/user/adminx.py" />
-    <entry file="file://$PROJECT_DIR$/edu_api/apps/home/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu_api/apps/home/adminx.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu_api/libs/geetest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2160">
-          <caret line="3" column="10" lean-forward="true" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/xuni/ven/Lib/site-packages/rest_framework/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="103" column="6" selection-start-line="103" selection-start-column="6" selection-end-line="103" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/xuni/ven/Lib/site-packages/rest_framework/generics.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="192" column="32" lean-forward="true" selection-start-line="192" selection-start-column="32" selection-end-line="192" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/xuni/ven/Lib/site-packages/rest_framework/mixins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="35" column="7" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu_api/apps/user/apps.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu_api/apps/user/tests.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu_api/utils/exceptions.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu_api/apps/home/serializer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu_api/apps/user/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu_api/settings/send_msg.py" />
-    <entry file="file://$PROJECT_DIR$/edu_api/settings/send_msg.py" />
-    <entry file="file://$PROJECT_DIR$/edu_api/settings_example.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="12" lean-forward="true" selection-end-line="121" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu_api/apps/home/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/wx/WeChat Files/wxid_hdi06j2pm9e412/FileStorage/File/2020-12/SignIn.vue" />
-    <entry file="file://$PROJECT_DIR$/edu_api/apps/user/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu_api/apps/home/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://E:/xuni/ven/Lib/site-packages/django/middleware/common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="202" lean-forward="true" selection-start-line="202" selection-end-line="202" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu_api/settings/production.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu_api/utils/send_msg.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu_api/apps/course/serivce.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../新建文件夹/edu_api/manage.py" />
-    <entry file="file://$PROJECT_DIR$/edu_api/apps/home/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-452">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu_api/apps/course/adminx.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/../新建文件夹/edu_api/edu_api/apps/course/service.py" />
     <entry file="file://$PROJECT_DIR$/../新建文件夹/edu_api/edu_api/apps/course/views.py" />
     <entry file="file://$PROJECT_DIR$/../新建文件夹/edu_api/edu_api/apps/course/urls.py" />
     <entry file="file://$PROJECT_DIR$/../新建文件夹/edu_api/edu_api/apps/course/models.py" />
     <entry file="file://$PROJECT_DIR$/../新建文件夹/edu_api/edu_api/apps/course/serializer.py" />
-    <entry file="file://$PROJECT_DIR$/edu_api/settings/constants.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/edu_api/apps/course/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
           <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu_api/apps/course/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2208">
-          <caret line="99" column="73" selection-start-line="99" selection-start-column="73" selection-end-line="99" selection-end-column="73" />
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu_api/apps/course/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="696">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu_api/apps/course/serializer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -570,17 +512,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/edu_api/urls.py">
+    <entry file="file://D:/wx/WeChat Files/wxid_hdi06j2pm9e412/FileStorage/File/2020-12/urls(1).py" />
+    <entry file="file://E:/资料/第二阶段 Web全栈/08 前后端分离项目实战/Day7-课程优惠设计/资料/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="22" column="26" lean-forward="true" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+        <state relative-caret-position="-1737" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/apps/cart/tests.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/apps/course/adminx.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="14" selection-start-line="14" selection-end-line="19" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/apps/order/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="42" column="14" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/apps/order/adminx.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/apps/order/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/apps/course/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8">
+          <caret line="372" selection-start-line="372" selection-end-line="372" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/runpy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="100" column="57" selection-start-line="100" selection-start-column="57" selection-end-line="100" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/apps/payments/keys/app_public_key.pem">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://E:/资料/第二阶段 Web全栈/08 前后端分离项目实战/Day9-支付模块/资料/模型.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-233" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/apps/payments/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/apps/order/serializer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="102" column="24" selection-start-line="102" selection-start-column="24" selection-end-line="103" selection-end-column="67" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/logs/lesson_api.log">
       <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="405">
-          <caret line="6828" lean-forward="true" selection-start-line="6828" selection-end-line="6828" />
+        <state relative-caret-position="288">
+          <caret line="11776" lean-forward="true" selection-start-line="11776" selection-end-line="11776" />
         </state>
       </provider>
       <provider editor-type-id="text-editor">
@@ -589,79 +597,194 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/edu_api/settings/develop.py">
+    <entry file="file://$PROJECT_DIR$/edu_api/apps/payments/adminx.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-659">
-          <caret line="238" column="43" selection-start-line="238" selection-start-column="43" selection-end-line="238" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu_api/apps/user/serializer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="84" column="21" selection-start-line="84" selection-start-column="21" selection-end-line="84" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu_api/apps/user/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu_api/apps/user/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1152">
-          <caret line="76" column="32" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/wx/WeChat Files/wxid_hdi06j2pm9e412/FileStorage/File/2020-12/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
+        <state relative-caret-position="96">
+          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://D:/wx/WeChat Files/wxid_hdi06j2pm9e412/FileStorage/File/2020-12/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="6" column="85" selection-start-line="6" selection-start-column="85" selection-end-line="6" selection-end-column="106" />
+        <state relative-caret-position="240">
+          <caret line="12" column="1" lean-forward="true" selection-end-line="12" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/wx/WeChat Files/wxid_hdi06j2pm9e412/FileStorage/File/2020-12/urls(1).py">
+    <entry file="file://D:/wx/WeChat Files/wxid_hdi06j2pm9e412/FileStorage/File/2020-12/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="5" column="82" selection-start-line="5" selection-start-column="82" selection-end-line="5" selection-end-column="152" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/wx/WeChat Files/wxid_hdi06j2pm9e412/FileStorage/File/2020-12/views(1).py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="69" selection-start-line="69" selection-end-line="113" selection-end-column="86" />
+        <state relative-caret-position="342">
+          <caret line="77" column="39" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/edu_api/apps/cart/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        <state relative-caret-position="264">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/wx/WeChat Files/wxid_hdi06j2pm9e412/FileStorage/File/2020-12/views(1).py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="61" column="18" selection-end-line="195" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="623">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://H:/views.py" />
+    <entry file="file://D:/wx/WeChat Files/wxid_hdi06j2pm9e412/FileStorage/File/2020-12/views(2).py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3528">
+          <caret line="147" selection-start-line="147" selection-end-line="147" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/apps/payments/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/libs/geetest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-792" />
+      </provider>
+    </entry>
+    <entry file="file://D:/wx/WeChat Files/wxid_hdi06j2pm9e412/FileStorage/File/2020-12/views(4).py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="161" selection-start-line="161" selection-end-line="161" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/wx/WeChat Files/wxid_hdi06j2pm9e412/FileStorage/File/2020-12/serializer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-717">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/wx/WeChat Files/wxid_hdi06j2pm9e412/FileStorage/File/2020-12/serializer(1).py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="81" column="29" lean-forward="true" selection-start-line="81" selection-start-column="29" selection-end-line="81" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/apps/user/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="53" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/apps/user/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#51#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/apps/user/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/settings/constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="43" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/settings/production.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/utils/exceptions.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/utils/send_msg.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/settings_example.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/apps/home/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/settings/develop.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5304">
+          <caret line="223" selection-start-line="223" selection-end-line="223" />
+          <folding>
+            <element signature="e#307#322#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/apps/order/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/apps/course/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/edu_api/apps/cart/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="37">
-          <caret line="117" column="43" selection-start-line="117" selection-start-column="43" selection-end-line="117" selection-end-column="43" />
+        <state relative-caret-position="2616">
+          <caret line="121" selection-start-line="121" selection-end-line="121" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/apps/course/serivce.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/apps/course/serializer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/apps/user/serializer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_api/apps/payments/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
         </state>
       </provider>
     </entry>
